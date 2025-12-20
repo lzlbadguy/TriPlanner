@@ -21,9 +21,11 @@
 
 ## 依赖项
 - 构建：CMake ≥ 3.12，C++20 编译器（gcc/g++ 或 clang/clang++），Threads。
-- 数学/优化：Eigen3，CasADi（通常随 Ipopt 部署），OSQP 头文件（示例中有包含）。最小体积椭圆与安全通道相关的实现位于 `include/`。
+- 数学/优化：Eigen3，CasADi（通常随 Ipopt 部署）,最小体积椭圆与安全通道相关的实现位于 `include/`。
 - 可视化：`matplotlibcpp`（随 `include` 提供）依赖 Python3 头文件及 `matplotlib` Python 包。
 - 其他：Python3 开发头文件（`Python3::Python`），标准 C++ STL。
+
+## CasADi 与 Ipopt 部署：请参考 https://blog.csdn.net/qq_45090497/article/details/138240039
 
 ## 构建与运行
 ```bash

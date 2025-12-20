@@ -1,5 +1,3 @@
-// #include <fmt/core.h>
-
 #include <Eigen/Core>
 #include <algorithm>
 #include <cmath>
