@@ -10,6 +10,7 @@ This repository implements the core ideas of the paper
 **“TriPlanner: A Tri-stage Planner for Safe Vehicle Navigation in Complex Environments”**  
 (see the PDF in the root directory).
 ![TriPlanner Animation](Gif/TriPlanner_Animation.gif)
+
 TriPlanner adopts a **three-stage planning pipeline** to generate safe and feasible vehicle trajectories in complex environments:
 1. lattice-based candidate trajectory generation,
 2. real-time safety corridor construction,
