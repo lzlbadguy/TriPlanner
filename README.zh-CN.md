@@ -11,6 +11,8 @@
 **《TriPlanner: A Tri-stage Planner for Safe Vehicle Navigation in Complex Environments》**  
 （见根目录 PDF）的核心思路。
 
+![TriPlanner 动画示意](Gif/TriPlanner_Animation.gif)
+
 TriPlanner 采用**三阶段规划框架**，在复杂环境中完成车辆安全轨迹规划：
 1. 格点候选轨迹生成，
 2. 实时安全通道构造，
