@@ -398,7 +398,7 @@ int main()
         plt::grid(true);
         plt::xlabel("X Axis");
         plt::ylabel("Y Axis");
-        // plt::pause(0.2);
+        plt::pause(0.2);
     }
 
     // plt::title("Optimized outcome");

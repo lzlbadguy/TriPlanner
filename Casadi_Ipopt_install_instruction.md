@@ -1,4 +1,4 @@
-# Casadi and Ipopt Installation Instructions on Ubuntu 20.04
+# Casadi and Ipopt Installation Instructions on Ubuntu
 ## 1. Installation of Ipopt
 Casadi's nonlinear optimization functionality relies on the Ipopt library, so Ipopt must be installed first.
 
