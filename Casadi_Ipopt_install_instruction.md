@@ -80,7 +80,7 @@ sudo ln -s /usr/local/lib/libipopt.so.3 /usr/lib/libipopt.so.3
 If no errors occur during the above steps, Ipopt is successfully installed.
 
 ## 2. Installation of Casadi
-The installation and testing of Casadi can refer to this post: [Nonlinear Solver Casadi (C++ Usage Example)](https://blog.csdn.net/qq_45090497/article/details/xxx) (Note: The original post link is for reference only; please use the actual valid link if needed). The following is a script copied from the post to complete the installation with one click. For installing a higher version, the method is similar, or you can refer to the installation instructions in the [Casadi official GitHub repository](https://github.com/casadi/casadi).
+The installation and testiting of Casadi is a simple process. The following script can be used to complete the installation with one click. For installing a higher version, the method is similar, or you can refer to the installation instructions in the [Casadi official GitHub repository](https://github.com/casadi/casadi).
 
 ```bash
 #!/usr/bin/env bash
@@ -109,7 +109,7 @@ sudo rm -fr casadi-3.5.5-1.tar.gz casadi-3.5.5.1
 ```
 
 ## 3. Casadi Installation Test
-After the installation is complete, test whether Casadi is installed successfully. For convenience, the test program is packaged into a compressed package. [Click here to download the compressed package](https://example.com/casadi_test_package.tar.gz) (Note: Replace with the actual download link of the test package) for testing.
+After the installation is complete, test whether Casadi is installed successfully. For convenience, the test program is packaged into a compressed package. [Click here to download the compressed package](./casadi_test.tar.gz) (Note: Replace with the actual download link of the test package) for testing.
 
 After downloading, extract and enter the folder. The file directory is as follows:
 ```
