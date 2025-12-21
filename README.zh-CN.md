@@ -26,7 +26,7 @@ TriPlanner 采用**三阶段规划框架**，在复杂环境中完成车辆安�
   在 Frenet 坐标系中使用四次/五次多项式生成大量候选轨迹，对速度、曲率和碰撞约束进行筛选，并转换到全局坐标系，得到后续阶段使用的初始轨迹。
 
 - **阶段 2：安全通道构造（Safety Corridor Generation）**  
-  结合障碍物轮廓与候选轨迹，基于**最小体积内接椭圆（MVIE）**和切线约束构造分段安全多边形通道，为优化阶段提供明确的可行域。
+  结合障碍物轮廓与候选轨迹，基于**最大体积内接椭圆（MVIE）**和切线约束构造分段安全多边形通道，为优化阶段提供明确的可行域。
 
 - **阶段 3：通道内优化（Trajectory Optimization within Corridor）**  
   在车辆动力学模型和安全通道约束下，使用 **CasADi + Ipopt** 构建非线性优化问题，生成平滑、可行且安全的最终轨迹，并支持可视化与数据导出。
@@ -40,7 +40,7 @@ TriPlanner 采用**三阶段规划框架**，在复杂环境中完成车辆安�
   - `Real_Time_Corridor_generation_for_lattice_based_Trajectory.cpp`：阶段 2，实时安全通道生成。
   - `Optimization_for_lattice_based_on_Safety_corridor.cpp`：阶段 3，基于安全通道的轨迹优化。
 
-- `include/`：规划所需的几何与优化组件，包括样条插值、最小体积椭圆计算、安全区域求解、碰撞检测以及 `matplotlibcpp` 封装。
+- `include/`：规划所需的几何与优化组件，包括样条插值、最大体积椭圆计算、安全区域求解、碰撞检测以及 `matplotlibcpp` 封装。
 
 - `Data/`：论文实验中使用的参考轨迹、障碍物与安全通道示例数据。
 
@@ -55,7 +55,7 @@ TriPlanner 采用**三阶段规划框架**，在复杂环境中完成车辆安�
 
 - **数学与优化**：  
   Eigen3，CasADi（通常与 Ipopt 一同部署）。  
-  与最小体积椭圆和安全通道相关的实现位于 `include/` 目录。
+  与最大体积椭圆和安全通道相关的实现位于 `include/` 目录。
 
 - **可视化**：  
   `matplotlibcpp`（随 `include` 提供），依赖 Python3 开发头文件及 Python `matplotlib` 包。

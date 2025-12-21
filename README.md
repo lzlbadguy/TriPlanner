@@ -26,7 +26,7 @@ The project is implemented in **C++20** and integrates **CasADi**, **Eigen**, an
   Constraints on velocity, curvature, and collision are checked, and feasible candidates are transformed into the global frame to serve as initial trajectories for subsequent stages.
 
 - **Stage 2: Safety Corridor Generation**  
-  Based on obstacle geometry and candidate trajectories, piecewise feasible safety corridors are constructed using **minimum-volume inscribed ellipses (MVIE)** and tangency constraints.  
+  Based on obstacle geometry and candidate trajectories, piecewise feasible safety corridors are constructed using **maximum-volume inscribed ellipses (MVIE)** and tangency constraints.  
   The resulting convex polygons provide explicit feasible regions for optimization.
 
 - **Stage 3: Trajectory Optimization within the Corridor**  
@@ -45,7 +45,7 @@ The project is implemented in **C++20** and integrates **CasADi**, **Eigen**, an
   - `Optimization_for_lattice_based_on_Safety_corridor.cpp`  
     Stage 3: trajectory optimization with vehicle dynamics and safety corridor constraints.
 
-- `include/`: Geometric and optimization components, including spline interpolation, minimum-volume ellipse computation, safety region solvers, collision checking, and a wrapper for `matplotlibcpp`.
+- `include/`: Geometric and optimization components, including spline interpolation, maximum-volume ellipse computation, safety region solvers, collision checking, and a wrapper for `matplotlibcpp`.
 
 - `Data/`: Reference trajectories, obstacle configurations, and safety corridor data used in the experiments.
 
@@ -60,7 +60,7 @@ The project is implemented in **C++20** and integrates **CasADi**, **Eigen**, an
 
 - **Math & Optimization**:  
   Eigen3, CasADi (typically deployed with Ipopt).  
-  Implementations related to minimum-volume ellipses and safety corridors are located in `include/`.
+  Implementations related to maximum-volume ellipses and safety corridors are located in `include/`.
 
 - **Visualization**:  
   `matplotlibcpp` (provided in `include/`), which depends on Python3 development headers and the Python `matplotlib` package.
