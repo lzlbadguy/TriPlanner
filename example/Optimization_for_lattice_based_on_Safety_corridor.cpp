@@ -419,7 +419,7 @@ int main()
     std::cout << "Optimized curvature magnitude mean: " << opti_curvature_mean << std::endl;
     std::cout << "Curvature improved magnitude: " << (lattice_curvature_mean - opti_curvature_mean) * 100.0 / lattice_curvature_mean << "%" << std::endl;
     plt::show();
-    std::string Curvature_comparison = "../Data/Curvature_comparison";
+    std::string Curvature_comparison = "../Data/Path_with_triangle_obstacles/Curvature_comparison";
     std::string Optimized_curvature = Curvature_comparison + "/Optimized_curvature.csv";
     std::string Lattice_curvature = Curvature_comparison + "/Lattice_curvature.csv";
     save_to_csv(Optimized_curvature, opti_time, opti_curvature);
