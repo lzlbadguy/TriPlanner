@@ -109,10 +109,9 @@ sudo rm -fr casadi-3.5.5-1.tar.gz casadi-3.5.5.1
 ```
 
 ## 3. Casadi Installation Test
-After the installation is complete, test whether Casadi is installed successfully. For convenience, the test program is packaged into a compressed package. [Click here to download the compressed package]((
-https://github.com/lzlbadguy/TriPlanner
-/raw/main/casadi_test.tar.gz
-)) (Note: Replace with the actual download link of the test package) for testing.
+After the installation is complete, test whether Casadi is installed successfully. For convenience, the test program is packaged into a compressed package. [Click here to download the compressed package](
+https://github.com/lzlbadguy/TriPlanner/raw/main/casadi_test.tar.gz
+) (Note: Replace with the actual download link of the test package) for testing.
 
 After downloading, extract and enter the folder. The file directory is as follows:
 ```
