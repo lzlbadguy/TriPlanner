@@ -1,7 +1,6 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include <casadi/casadi.hpp>
-#include <osqp/osqp.h>
 #include <limits>
 #include <vector>
 #include <cmath>

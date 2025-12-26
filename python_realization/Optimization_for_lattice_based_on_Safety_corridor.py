@@ -362,45 +362,56 @@ def main():
     save_to_csv(optimized_curvature, opti_time, opti_curvature)
     save_to_csv(lattice_curvature_file, opti_time, lattice_curvature)
     
-    # Visualization
-    plt.figure(figsize=(10, 8))
+    # Create directory for saving optimization steps
+    image_dir = "../Data/Path_with_triangle_obstacles/Optimization_Steps_Python"
+    if not os.path.exists(image_dir):
+        os.makedirs(image_dir)
     
-    # Plot obstacles
-    for i, obstacle in enumerate(obstacles):
-        if i == 0:
-            plt.plot(obstacle.x, obstacle.y, 'r-', label='Obstacle')
-        else:
-            plt.plot(obstacle.x, obstacle.y, 'r-')
-    
-    # Plot safety corridors and optimized path
+    # Visualization of optimization steps
     for k in range(N):
-        # Plot safety corridor
-        # if k < len(safety_corridor_vertices):
-        #     if k == 0:
-        #         plt.plot(safety_corridor_vertices[k].x, safety_corridor_vertices[k].y, 'g-', label='Safety Corridor')
-        #     else:
-        #         plt.plot(safety_corridor_vertices[k].x, safety_corridor_vertices[k].y, 'g-')
+        plt.figure(figsize=(10, 8))
         
-        # Plot vehicle positions
-        if k % 1 == 0:  # Plot every 3rd vehicle position
-            controlled_vehicle = SimpleVehicleWithPosition(
-                LF, LR, W, opti_pos_x[k], opti_pos_y[k], opti_theta[k])
-            controlled_vehicle_x = controlled_vehicle.corner_points_x + [controlled_vehicle.corner_points_x[0]]
-            controlled_vehicle_y = controlled_vehicle.corner_points_y + [controlled_vehicle.corner_points_y[0]]
-            plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', alpha=0.7)
-    
-    # Plot paths
-    plt.plot(opti_pos_x, opti_pos_y, 'k-', label='Optimized course')
-    plt.plot(x_lattice, y_lattice, 'b--', label='Lattice path')
-    
-    plt.axis('equal')
-    plt.legend()
-    plt.grid(True)
-    plt.xlabel('X Axis')
-    plt.ylabel('Y Axis')
-    plt.title('Optimized outcome')
-    plt.show()
-    
+        # Plot obstacles
+        for i, obstacle in enumerate(obstacles):
+            if i == 0:
+                plt.plot(obstacle.x, obstacle.y, 'r-', label='Obstacle')
+            else:
+                plt.plot(obstacle.x, obstacle.y, 'r-')
+        
+        # Plot safety corridor for current step
+        if k < len(safety_corridor_vertices):
+            if k == 0:
+                plt.plot(safety_corridor_vertices[k].x, safety_corridor_vertices[k].y, 'g-', label='Safety Corridor')
+            else:
+                plt.plot(safety_corridor_vertices[k].x, safety_corridor_vertices[k].y, 'g-')
+        
+        # Plot vehicle positions up to current step
+        for j in range(k+1):
+            if j % 1 == 0:  # Plot every step
+                controlled_vehicle = SimpleVehicleWithPosition(
+                    LF, LR, W, opti_pos_x[j], opti_pos_y[j], opti_theta[j])
+                controlled_vehicle_x = controlled_vehicle.corner_points_x + [controlled_vehicle.corner_points_x[0]]
+                controlled_vehicle_y = controlled_vehicle.corner_points_y + [controlled_vehicle.corner_points_y[0]]
+                if j == 0:
+                    plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', label='Controlled Vehicle', alpha=0.7)
+                else:
+                    plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', alpha=0.7)
+        
+        # Plot paths up to current step
+        plt.plot(opti_pos_x[k], opti_pos_y[k], 'k-', label='Optimized course')
+        plt.plot(x_lattice, y_lattice, 'b--', label='Lattice path')
+        
+        plt.axis('equal')
+        plt.legend()
+        plt.grid(True)
+        plt.xlabel('X Axis')
+        plt.ylabel('Y Axis')
+        plt.title(f'Optimization Step {k}')
+        # Save the figure
+        filename = os.path.join(image_dir, f"step_{k:03d}.png")
+        plt.savefig(filename, dpi=150, bbox_inches='tight')
+        plt.close()  # Close the figure to free memory
+
     # Plot curvature
     plt.figure()
     plt.plot(opti_time, opti_curvature, 'r-', label='Optimized curvature')
