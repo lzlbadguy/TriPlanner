@@ -102,38 +102,6 @@ public:
     std::vector<double> x, y;
 };
 
-bool check_opt_necessity(const Vec2 &tangency_point, const std::vector<double> &trasfer_obs_x1, const std::vector<double> &trasfer_obs_y1, const std::vector<double> &tf_vehicle_x, const std::vector<double> &tf_vehicle_y)
-{
-    auto a = tangency_point(0);
-    auto b = tangency_point(1);
-    auto c = -(a * a + b * b);
-    bool Need_optimization = false;
-    for (int i = 0; i < tf_vehicle_x.size(); i++)
-    {
-        auto f_vehicle = a * tf_vehicle_x[i] + b * tf_vehicle_y[i] + c;
-        if (f_vehicle > 0.0)
-        {
-            Need_optimization = true;
-            break;
-        }
-    }
-
-    if (!Need_optimization)
-    {
-        for (int i = 0; i < trasfer_obs_x1.size(); i++)
-        {
-            auto f_obs = a * trasfer_obs_x1[i] + b * trasfer_obs_y1[i] + c;
-            if (f_obs < 0.0)
-            {
-                Need_optimization = true;
-                break;
-            }
-        }
-    }
-
-    return Need_optimization;
-}
-
 class Tangencyline
 {
 public:
