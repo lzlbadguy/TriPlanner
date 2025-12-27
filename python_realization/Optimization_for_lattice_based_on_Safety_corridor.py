@@ -369,7 +369,7 @@ def main():
     
     # Visualization of optimization steps
     for k in range(N):
-        plt.figure(figsize=(10, 8))
+        plt.cla()
         
         # Plot obstacles
         for i, obstacle in enumerate(obstacles):
@@ -386,19 +386,19 @@ def main():
                 plt.plot(safety_corridor_vertices[k].x, safety_corridor_vertices[k].y, 'g-')
         
         # Plot vehicle positions up to current step
-        for j in range(k+1):
-            if j % 1 == 0:  # Plot every step
-                controlled_vehicle = SimpleVehicleWithPosition(
-                    LF, LR, W, opti_pos_x[j], opti_pos_y[j], opti_theta[j])
-                controlled_vehicle_x = controlled_vehicle.corner_points_x + [controlled_vehicle.corner_points_x[0]]
-                controlled_vehicle_y = controlled_vehicle.corner_points_y + [controlled_vehicle.corner_points_y[0]]
-                if j == 0:
-                    plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', label='Controlled Vehicle', alpha=0.7)
-                else:
-                    plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', alpha=0.7)
+        # for j in range(k+1):
+        if k % 1 == 0:  # Plot every step
+            controlled_vehicle = SimpleVehicleWithPosition(
+                LF, LR, W, opti_pos_x[k], opti_pos_y[k], opti_theta[k])
+            controlled_vehicle_x = controlled_vehicle.corner_points_x + [controlled_vehicle.corner_points_x[0]]
+            controlled_vehicle_y = controlled_vehicle.corner_points_y + [controlled_vehicle.corner_points_y[0]]
+            if k == 0:
+                plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', label='Controlled Vehicle', alpha=0.7)
+            else:
+                plt.plot(controlled_vehicle_x, controlled_vehicle_y, 'k--', alpha=0.7)
         
         # Plot paths up to current step
-        plt.plot(opti_pos_x[k], opti_pos_y[k], 'k-', label='Optimized course')
+        plt.plot(opti_pos_x[:k+1], opti_pos_y[:k+1], 'k-', label='Optimized course')
         plt.plot(x_lattice, y_lattice, 'b--', label='Lattice path')
         
         plt.axis('equal')
@@ -410,7 +410,7 @@ def main():
         # Save the figure
         filename = os.path.join(image_dir, f"step_{k:03d}.png")
         plt.savefig(filename, dpi=150, bbox_inches='tight')
-        plt.close()  # Close the figure to free memory
+        plt.pause(0.2)  # pause a bit so that plots are updated
 
     # Plot curvature
     plt.figure()
