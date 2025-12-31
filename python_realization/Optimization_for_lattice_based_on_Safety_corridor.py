@@ -362,6 +362,15 @@ def main():
     save_to_csv(optimized_curvature, opti_time, opti_curvature)
     save_to_csv(lattice_curvature_file, opti_time, lattice_curvature)
     
+    # Save optimized path coordinates
+    optimized_path_file = "../Data/Path_with_triangle_obstacles/optimized_path.csv"
+    with open(optimized_path_file, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['x', 'y', 'theta'])  # Header
+        for i in range(len(opti_pos_x)):
+            writer.writerow([opti_pos_x[i], opti_pos_y[i], opti_theta[i]])
+    print(f"优化路径已写入到: {optimized_path_file}")
+    
     # Create directory for saving optimization steps
     image_dir = "../Data/Path_with_triangle_obstacles/Optimization_Steps_Python"
     if not os.path.exists(image_dir):
