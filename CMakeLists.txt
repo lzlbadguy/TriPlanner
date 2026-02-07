@@ -99,8 +99,9 @@ file(GLOB HEADER_FILES_H ${CMAKE_SOURCE_DIR}/include/*.h)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # 链接 Python3 库
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+find_package(Python3 COMPONENTS Interpreter Development NumPy REQUIRED)
 include_directories(${Python3_INCLUDE_DIRS})
+include_directories(${Python3_NumPy_INCLUDE_DIRS})
 
 # 添加 cubic_spline 库
 add_library(cubic_spline STATIC ${CMAKE_SOURCE_DIR}/include/src/cubic_spline.cpp)
