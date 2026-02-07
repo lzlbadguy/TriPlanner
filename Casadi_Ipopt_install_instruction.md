@@ -33,7 +33,7 @@ cd ThirdParty-HSL
 ```
 
 Next, you need to download the coinhsl file and extract it to the ThirdParty-HSL directory. The download method for the coinhsl file is as follows:
-To download the coinhsl file, you need to apply for a license. The license application URL is: [STFC IP Store](https://www.stfc.ac.uk/ip-store/). The available application types are `Coin-HSL` or `Coin-HSL Archive`.
+To download the coinhsl file, you need to apply for a license. The license application URL is: [STFC IP Store](https://licences.stfc.ac.uk/products/Software/HSL). The available application types are `Coin-HSL` or `Coin-HSL Archive`.
 - The `Coin-HSL` type is only available for free application by academic institutions; other institutions need to pay and go through an approval process, which takes a long time.
 - The application for the `Coin-HSL Archive` type is approved immediately, so you can apply for this if you need it urgently.
 
