@@ -6,7 +6,7 @@
 [English](./README.md) | [中文](./README.zh-CN.md)
 
 </div>
-
+[本人相关论文](./TriPlanner__A_Tri_stage_Planner_for_Safe_Vehicle_Navigation_in_Complex_Environments.pdf)
 本仓库实现了论文  
 **《TriPlanner: A Tri-stage Planner for Safe Vehicle Navigation in Complex Environments》**  
 （见根目录 PDF）的核心思路。
