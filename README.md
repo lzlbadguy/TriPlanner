@@ -5,7 +5,7 @@
 [English](./README.md) | [中文](./README.zh-CN.md)
 
 </div>
-[Related paper](./TriPlanner__A_Tri_stage_Planner_for_Safe_Vehicle_Navigation_in_Complex_Environments.pdf)
+
 This repository implements the core ideas of the paper  
 **“TriPlanner: A Tri-stage Planner for Safe Vehicle Navigation in Complex Environments”**  
 (see the PDF in the root directory).
